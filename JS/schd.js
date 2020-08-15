@@ -2,7 +2,7 @@ $(document).ready(function () {
     calendarObj.makeCalendar()
     //load stored notes   //use this sort of pattern let storedPlans = JSON.parse(localStorage.getItem("storedPlans")); run an if state ment to check 
     
-    //save click event
+    //save click event - saves a day note.
     $(".sveBtn").on("click", function () {
 
         console.log("pressed a button");
@@ -29,7 +29,7 @@ $(document).ready(function () {
         slot: 'number',
         note: 'text'
     }
-
+    //load data from local storage code.
     var storeArray = [];
     let dayNts = JSON.parse(localStorage.getItem("dayNotes"));
     if (dayNts !== null) {
@@ -64,8 +64,9 @@ let calendarObj = {
         let adjTme;
         //make the grid using jquery     
         //if, else if else for number assignment and converting military time to civilian time.
-        if(num> 12)  // num>12
-        { adjTme = num -12;/*NL*/ var divTime = $("<button>" + adjTme + " PM" + "</button>");
+        if(num> 12) 
+        { adjTme = num -12;
+           var divTime = $("<button>" + adjTme + " PM" + "</button>");
         }else if(num === 12){ var divTime = $("<button>" + num + " PM" + "</button>");}
         else{var divTime = $("<button>" + num + " PM" + "</button>");}
         divTime.addClass("btn btn-outline-primary m-0 col-2")
