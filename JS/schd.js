@@ -13,7 +13,7 @@ $(document).ready(function () {
     {
         console.log(storeArray[i].text);
         let num = storeArray[i].number;
-        $("#idNote-"+num).val("dfadsfadf");        
+        $("#idNote-"+num).val(storeArray[i].text);        
     }
 
 
