@@ -1,4 +1,4 @@
-##Simple Work Day Scheduler
+<h1>Simple Work Day Scheduler</h1>
 <img src="./Work Day Scheduler by Joe Farrish.png">
 View the website <a href = "https://joejoe909.github.io/Work-Day-Scheduler/">Here</a>
 
