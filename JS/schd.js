@@ -2,23 +2,9 @@ $(document).ready(function () {
     calendarObj.makeCalendar()
     //load stored notes   //use this sort of pattern let storedPlans = JSON.parse(localStorage.getItem("storedPlans")); run an if state ment to check 
     
-    let dayNts = JSON.parse(localStorage.getItem("dayNotes"));
-    if(dayNts !== null){
-        storeArray = dayNts;
-    }else{
-        storeArray =[];
-    }
-
-    for(i =0; i< storeArray.length; i++)
-    {
-        console.log(storeArray[i].text);
-        let num = storeArray[i].number;
-        $("#idNote-"+num).val(storeArray[i].text);        
-    }
-
-
     //save click event
     $(".sveBtn").on("click", function () {
+
         console.log("pressed a button");
         var slotNum = $(this).attr("slot"); //this get the slot# 
         console.log(slotNum);
@@ -45,14 +31,20 @@ $(document).ready(function () {
     }
 
     var storeArray = [];
+    let dayNts = JSON.parse(localStorage.getItem("dayNotes"));
+    if (dayNts !== null) {
+        storeArray = dayNts;
+    } else {
+        console("dayNts is coming up as null")
+        storeArray = [];
+    }
 
-     //setup a save function
-     function saveNotes(slot, noteslot){
-  
-
-     };
-     //setup a recall function
-     function recallNotes(){};
+    for (i = 0; i < storeArray.length; i++) {
+        console.log(storeArray[i].text);
+        let num = storeArray[i].number;
+        $("#idNote-" + num).val(storeArray[i].text);
+    }
+    
 });
 
 
@@ -89,7 +81,7 @@ let calendarObj = {
         divSave.attr("id", "idSave"+num);
         divSave.attr("slot", num);              //here we create a slot for save and recall
         var saveIcon = $("<i>");
-        saveIcon.addClass("far fa-save");
+        saveIcon.addClass("far fa-save"); //font awesome icon.
         divSave.append(saveIcon);
 
         var row = $("<div>");
