@@ -7,20 +7,11 @@ $(document).ready(function () {
 
         console.log("pressed a button");
         var slotNum = $(this).attr("slot"); //this get the slot# 
-        console.log(slotNum);
-        console.log(typeof(slotNum));
-        var getNoteID = $("#idNote-" + slotNum); //this constructs the id of the input element.
-        console.log(getNoteID.val());
-        
+        var getNoteID = $("#idNote-" + slotNum); //this constructs the id of the input element.    
         aStrSet = Object.create(storeSet);
         aStrSet.number = slotNum;
         aStrSet.text = getNoteID.val();
         storeArray.push(aStrSet);
-        for(i = 0; i < storeArray.length; i++)
-        {
-            console.log(storeArray[i]);
-        }
-
         localStorage.setItem("dayNotes", JSON.stringify(storeArray));
 
     });
